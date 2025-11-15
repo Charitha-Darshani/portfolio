@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Deep space background */
+    --background: 240 20% 5%;
+    --foreground: 210 100% 98%;
+
+    /* Glassmorphic cards */
+    --card: 240 15% 10%;
+    --card-foreground: 210 100% 98%;
+
+    --popover: 240 15% 10%;
+    --popover-foreground: 210 100% 98%;
+
+    /* Neon cyan primary */
+    --primary: 189 95% 55%;
+    --primary-foreground: 240 20% 5%;
+
+    /* Purple accent */
+    --secondary: 270 80% 60%;
+    --secondary-foreground: 210 100% 98%;
+
+    --muted: 240 15% 15%;
+    --muted-foreground: 210 20% 65%;
+
+    /* Neon accent */
+    --accent: 320 90% 65%;
+    --accent-foreground: 240 20% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 20% 20%;
+    --input: 240 15% 15%;
+    --ring: 189 95% 55%;
+
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(189 95% 55%) 0%, hsl(270 80% 60%) 100%);
+    --gradient-accent: linear-gradient(45deg, hsl(270 80% 60%) 0%, hsl(320 90% 65%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(240 20% 8%) 0%, hsl(240 20% 5%) 100%);
+
+    /* Glow effects */
+    --glow-primary: 0 0 40px hsl(189 95% 55% / 0.5);
+    --glow-secondary: 0 0 40px hsl(270 80% 60% / 0.5);
+    --glow-accent: 0 0 40px hsl(320 90% 65% / 0.5);
+    
+    /* Glass effect */
+    --glass-bg: hsl(240 15% 10% / 0.4);
+    --glass-border: hsl(210 100% 98% / 0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  /* Glassmorphic utilities */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-strong {
+    background: hsl(240 15% 10% / 0.6);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid hsl(210 100% 98% / 0.15);
+  }
+
+  /* Glow utilities */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  /* Text glow */
+  .text-glow-primary {
+    text-shadow: 0 0 20px hsl(189 95% 55% / 0.6);
+  }
+
+  .text-glow-secondary {
+    text-shadow: 0 0 20px hsl(270 80% 60% / 0.6);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
